@@ -1,6 +1,6 @@
-openai
 langchain
 streamlit
+openai
 pypdf2
 tiktoken
 faiss-cpu
