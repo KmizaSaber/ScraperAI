@@ -10,8 +10,9 @@ from PyPDF2 import PdfReader
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.docstore.document import Document
+import os
 
-
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 embeddings = OpenAIEmbeddings()
 def create_vector_db_from_pdf(pdf_file:str) -> FAISS:
@@ -36,7 +37,7 @@ def get_response_from_query(db, query, k=15):
     llm = ChatOpenAI(
         model_name = 'gpt-3.5-turbo-16k', 
         temperature = 0.1,
-        openai_api_key = st.secrets["openaikey"],         
+        openai_api_key = os.environ.get["OPENAI_API_KEY"],         
         )
 
     
