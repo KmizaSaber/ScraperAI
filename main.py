@@ -21,7 +21,7 @@ with tab3:
 if query and file_uploader:
   db = lch.create_vector_db_from_pdf(file_uploader)
   response = lch.get_response_from_query(db, query)
-  with st.container():
+  with st.container(border=True):
     st.title("Risposta:")
     st.text(textwrap.fill(response))
 
