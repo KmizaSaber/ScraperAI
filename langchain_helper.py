@@ -36,7 +36,7 @@ def get_response_from_query(db, query, k=15):
     llm = ChatOpenAI(
         model_name = 'gpt-3.5-turbo-16k', 
         temperature = 0.1,
-        openai_api_key = st_secrets(["openai_api_key"]),         
+        openai_api_key = st.secrets(["openai_api_key"]),         
         )
 
     
