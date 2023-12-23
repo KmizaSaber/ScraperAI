@@ -10,9 +10,6 @@ from PyPDF2 import PdfReader
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.docstore.document import Document
-from dotenv import load_dotenv
-import os
-load_dotenv()
 
 
 
