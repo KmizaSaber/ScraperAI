@@ -5,3 +5,4 @@ streamlit
 pypdf2
 tiktoken
 faiss-cpu
+moviepy
