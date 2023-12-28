@@ -22,7 +22,6 @@ embeddings = OpenAIEmbeddings()
     
 def convert_video_to_audio_moviepy(video_file):
     OutputExt = ".mp3"
-    wait = input("")
     filename, ext = os.path.splitext(video_file)
     clip = VideoFileClip(video_file)
     print(f"{filename}"+ OutputExt)
