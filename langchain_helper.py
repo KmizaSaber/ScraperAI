@@ -10,11 +10,43 @@ from PyPDF2 import PdfReader
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.docstore.document import Document
+from dotenv import load_dotenv 
+from openai import OpenAI
+from moviepy.editor import VideoFileClip
 import os
-
-os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+load_dotenv()
+#os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 embeddings = OpenAIEmbeddings()
+
+#def file_selector(folder_path='.'):
+#    filenames = os.listdir(folder_path)
+#    selected_filename = st.selectbox('Select a file', filenames)
+#   return os.path.join(folder_path, selected_filename)
+    
+def convert_video_to_audio_moviepy(video_file):
+    OutputExt = ".mp3"
+    wait = input("")
+    filename, ext = os.path.splitext(video_file)
+    wait = input("")
+    clip = VideoFileClip(video_file)
+    print(f"{filename}"+ OutputExt)
+    wait = input("")
+    clip.audio.write_audiofile(f"{filename}"+ OutputExt)
+    wait = input("")
+    OutputFile = f"{filename}" +'.ogg'
+    os.system('ffmpeg -i '+ f"{filename}"+ ext +' -vn -map_metadata -1 -ac 1 -c:a libopus -b:a 48k -application voip '+ OutputFile)
+    return OutputFile
+
+def speech_to_text(video_file:str):
+    client = OpenAI()
+    audio_file = open(video_file, "rb")
+    transcript = client.audio.transcriptions.create(
+    model="whisper-1", 
+    file=audio_file, 
+    response_format="text")
+    return transcript
+
 def create_vector_db_from_pdf(pdf_file:str) -> FAISS:
     reader = PdfReader(pdf_file)
     docs = ""
@@ -61,8 +93,3 @@ def get_response_from_query(db, query, k=15):
     response = chain.run(question=query, docs = docs_page_content)
     response = response.replace("\n","")
     return response
-
-
-
-
-
