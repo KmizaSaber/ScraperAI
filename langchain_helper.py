@@ -3,13 +3,10 @@ from langchain.llms import OpenAIChat
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
-from langchain.chains import SequentialChain
 from langchain.vectorstores import FAISS
 from langchain.embeddings.openai import OpenAIEmbeddings
 from PyPDF2 import PdfReader
-from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.docstore.document import Document
 from dotenv import load_dotenv 
 from openai import OpenAI
 from moviepy.editor import VideoFileClip
