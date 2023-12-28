@@ -24,12 +24,9 @@ def convert_video_to_audio_moviepy(video_file):
     OutputExt = ".mp3"
     wait = input("")
     filename, ext = os.path.splitext(video_file)
-    wait = input("")
     clip = VideoFileClip(video_file)
     print(f"{filename}"+ OutputExt)
-    wait = input("")
     clip.audio.write_audiofile(f"{filename}"+ OutputExt)
-    wait = input("")
     OutputFile = f"{filename}" +'.ogg'
     os.system('ffmpeg -i '+ f"{filename}"+ ext +' -vn -map_metadata -1 -ac 1 -c:a libopus -b:a 48k -application voip '+ OutputFile)
     return OutputFile
