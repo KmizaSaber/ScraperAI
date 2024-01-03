@@ -3,7 +3,7 @@ import langchain_helper as lch
 import textwrap
 import os
 
-tab1, tab2 = st.tabs(["PDF", "Video", "YouTube"])
+tab1, tab2 = st.tabs(["PDF", "Video"])
 
 
 
