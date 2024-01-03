@@ -23,7 +23,7 @@ with tab1:
       st.text(textwrap.fill(response, width=500))
 
 with tab2:
-  st.header(':speaking_head_in_silhouette: Speech-To-Text', divider='red')
+  st.header(':speaking_head_in_silhouette: Speech-To-Text', divider='blue')
   st.markdown('##')
   with st.form(key='My_form2'):
     #video_uploader = lch.file_selector()
