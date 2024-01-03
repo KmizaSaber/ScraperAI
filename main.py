@@ -39,7 +39,7 @@ with tab2:
     transcript = lch.speech_to_text(audio)
     with st.container(border=True):
       st.title("Risposta:")
-      st.download_button(transcript,text_content)
+      st.download_button(transcript,text_contents)
       st.text(textwrap.fill(transcript)) 
 
 with tab3:
