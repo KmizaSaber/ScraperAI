@@ -39,11 +39,11 @@ with tab2:
     transcript = lch.speech_to_text(audio)
     with st.container(border=True):
       st.title("Risposta:")
-          DownloadBtn = st.download_button(
-            label="Download transcript",
-            data=transcript,
-            file_name="Transcript.txt"
-          )
+      DownloadBtn = st.download_button(
+        label="Download transcript",
+        data=transcript,
+        file_name="Transcript.txt"
+      )
       #st.download_button("Download Transcript",transcript)
       st.text(textwrap.fill(transcript)) 
 
