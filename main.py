@@ -29,17 +29,22 @@ with tab2:
     #video_uploader = lch.file_selector()
     video_uploader = st.file_uploader(label="Carica audio", type=["mp4","mp3","wav"])
     if video_uploader is not None:
-      print(video_uploader.name)
+      #print(video_uploader.name)
       with open(os.path.join(".", video_uploader.name),"wb") as f: 
         f.write(video_uploader.getbuffer())
-        print(f.name)
+        #print(f.name)
     submit_button2 = st.form_submit_button(label="Invia")
   if submit_button2:
     audio = lch.convert_video_to_audio_moviepy(f.name)
     transcript = lch.speech_to_text(audio)
     with st.container(border=True):
       st.title("Risposta:")
-      st.download_button("Download Transcript",transcript)
+          DownloadBtn = st.download_button(
+            label="Download transcript",
+            data=transcript,
+            file_name="Transcript.txt"
+          )
+      #st.download_button("Download Transcript",transcript)
       st.text(textwrap.fill(transcript)) 
 
 with tab3:
