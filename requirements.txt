@@ -1,8 +1,9 @@
 openai
-langchain
+langchain-community
 python-dotenv
 streamlit
 pypdf2
 tiktoken
 faiss-cpu
 moviepy
+langchain-core
