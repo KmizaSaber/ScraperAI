@@ -38,7 +38,7 @@ def speech_to_text(video_file:str):
     model="whisper-1", 
     file=audio_file, 
     response_format="text")
-    os.remove(video_file)
+    #os.remove(video_file)
     return transcript
 
 def create_vector_db_from_pdf(pdf_file:str) -> FAISS:
