@@ -28,7 +28,7 @@ def convert_video_to_audio_moviepy(video_file):
     clip.audio.write_audiofile(f"{filename}"+ OutputExt)
     OutputFile = f"{filename}" +'.ogg'
     os.system('ffmpeg -i '+ f"{filename}"+ ext +' -vn -map_metadata -1 -ac 1 -c:a libopus -b:a 48k -application voip '+ OutputFile)
-    os.remove(video_file)
+    #os.remove(video_file)
     return OutputFile
 
 def speech_to_text(video_file:str):
