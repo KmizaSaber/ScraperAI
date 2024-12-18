@@ -5,5 +5,5 @@ streamlit
 pypdf2
 tiktoken
 faiss-cpu
-moviepy
+moviepy == 1.0.3
 langchain-core
