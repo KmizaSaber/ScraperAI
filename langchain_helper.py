@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from moviepy.editor import VideoFileClip
 import os
+import subprocess
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 embeddings = OpenAIEmbeddings()
