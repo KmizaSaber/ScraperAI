@@ -27,9 +27,13 @@ def convert_video_to_audio_moviepy(video_file):
     print(f"{filename}"+ OutputExt)
     clip.audio.write_audiofile(f"{filename}"+ OutputExt)
     OutputFile = f"{filename}" +'.ogg'
-    command = 'ffmpeg -i \''+ f"{filename}"+ OutputExt +'\' -vn -map_metadata -1 -ac 1 -c:a libopus -b:a 48k -application voip \''+ OutputFile+'\''
-    os.system(command)
-    print( command)
+    command = f"ffmpeg -i \"{os.path.abspath(video_file)}\" -vn -map_metadata -1 -ac 1 -c:a libopus -b:a 48k -application voip \"{os.path.abspath(OutputFile)}\""
+    print(command)
+    result = subprocess.run(command, shell=True, capture_output=True, text=True, env=os.environ)
+    #if result.returncode != 0:
+    #    print(f"Error: {result.stderr}")
+    #else:
+    #   print(f"Output: {result.stdout}")
     #os.remove(video_file)
     return OutputFile
 
