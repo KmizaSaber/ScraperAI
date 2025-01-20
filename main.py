@@ -12,7 +12,7 @@ with tab1:
   st.markdown('##')
   with st.form(key='My_form'):
     file_uploader = st.file_uploader(label="Carica documento", type="pdf")
-    query = st.text_input(label = "Chiedi qualcosa sul file inserito", max_chars=50, key = "query", label_visibility = "hidden", placeholder = "Chiedi qualcosa sul file inserito")      
+    query = st.text_input(label = "Chiedi qualcosa sul file inserito", max_chars=200, key = "query", label_visibility = "hidden", placeholder = "Chiedi qualcosa sul file inserito")      
     submit_button = st.form_submit_button(label="submit")
     #st.image('./pdf_icon.png', width = 60)  
   if query and file_uploader:
